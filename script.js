@@ -1,19 +1,24 @@
 let container = document.querySelector('.container')
+let i=0,j=0,colNum=64,rowNum=64
+
 
 function main() {
-    gridCreate(16,16)
-    hoverChange()
+    gridCreate()
+    console.log(rowNum,colNum);
+    changeGrid()
 }
+
+
 
 main()
 
 // grid creating function
 
-function gridCreate(rowNum,colNum) {
-    for (let i = 0; i < colNum; i++) {
+function gridCreate() {
+    for ( i = 0; i < colNum; i++) {
         let col = document.createElement('div')
         col.classList.add('col')
-        for (let j = 0; j < rowNum; j++) {
+        for ( j = 0; j < rowNum; j++) {
             let ro = document.createElement('div')
             ro.classList.add('ro')
             ro.classList.add('hover')
@@ -22,11 +27,9 @@ function gridCreate(rowNum,colNum) {
         }
         container.appendChild(col)
     }
-}
 
-// hover color change function
+    // hover color change function
 
-function hoverChange() {
     let divColorChange = document.querySelectorAll('.hover')
 
     divColorChange.forEach((e)=> {
@@ -35,4 +38,37 @@ function hoverChange() {
         })
     })
 
+
 }
+
+// function for getting input for changing grid size
+
+function changeGrid() {
+    document.querySelector('.changeGrid').addEventListener('click' , ()=>{
+        let gridValue = prompt("enter grid size vale (upto 64)")
+        colNum = gridValue
+        rowNum=gridValue
+        console.log(rowNum,colNum);
+        let col = document.querySelectorAll('.col')
+        let ro = document.querySelectorAll('.ro')
+        col.forEach((e)=> {
+            e.remove()
+        })
+        ro.forEach((e)=> {
+            e.remove()
+        })
+        gridCreate()
+
+        // making bgcolor change when hovering
+        let divColorChange = document.querySelectorAll('.hover')
+
+        divColorChange.forEach((e)=> {
+            e.addEventListener('mouseover', (element)=> {
+                element.target.style.backgroundColor = "red"
+            })
+        })
+    })
+}
+
+
+
