@@ -32,7 +32,11 @@ function gridCreate() {
     }
 
     // hover color change function
+    color()
 
+}
+
+function color() {
     let divColorChange = document.querySelectorAll('.hover')
 
     divColorChange.forEach((e)=> {
@@ -40,8 +44,6 @@ function gridCreate() {
             element.target.style.backgroundColor = hoverColor
         })
     })
-
-
 }
 
 // function for getting input for changing grid size
@@ -61,13 +63,8 @@ function changeGrid() {
         gridCreate()
 
         // making bgcolor change when hovering
-        let divColorChange = document.querySelectorAll('.hover')
+        color()
 
-        divColorChange.forEach((e)=> {
-            e.addEventListener('mouseover', (element)=> {
-                element.target.style.backgroundColor = hoverColor
-            })
-        })
     })
 }
 
