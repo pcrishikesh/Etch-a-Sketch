@@ -90,6 +90,9 @@ function Reset() {
         ro.forEach((e)=> e.remove())
         colNum = 16
         rowNum = 16
+        hoverColor = "red"
+        let value = document.querySelector('#favcolor')
+        value.value = hoverColor
         gridCreate()
     })
 }
