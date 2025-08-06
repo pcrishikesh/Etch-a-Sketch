@@ -32,11 +32,11 @@ function gridCreate() {
     }
 
     // hover color change function
-    color()
+    hoverEffect()
 
 }
 
-function color() {
+function hoverEffect() {
     let divColorChange = document.querySelectorAll('.hover')
 
     divColorChange.forEach((e)=> {
@@ -63,7 +63,7 @@ function changeGrid() {
         gridCreate()
 
         // making bgcolor change when hovering
-        color()
+        hoverEffect()
 
     })
 }
