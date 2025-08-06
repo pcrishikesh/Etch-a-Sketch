@@ -1,11 +1,13 @@
 let container = document.querySelector('.container')
-let i=0,j=0,colNum=64,rowNum=64
+let i=0,j=0,colNum=16,rowNum=16 
+let hoverColor = "red"
 
 
 function main() {
     gridCreate()
     console.log(rowNum,colNum);
     changeGrid()
+    hoverChange()
 }
 
 
@@ -34,7 +36,7 @@ function gridCreate() {
 
     divColorChange.forEach((e)=> {
         e.addEventListener('mouseover', (element)=> {
-            element.target.style.backgroundColor = "red"
+            element.target.style.backgroundColor = hoverColor
         })
     })
 
@@ -64,11 +66,19 @@ function changeGrid() {
 
         divColorChange.forEach((e)=> {
             e.addEventListener('mouseover', (element)=> {
-                element.target.style.backgroundColor = "red"
+                element.target.style.backgroundColor = hoverColor
             })
         })
     })
 }
 
+// change hovering color function
 
+function hoverChange() {
+    let btnColor = document.querySelector('.changeColor')
+    let value = document.querySelector('#favcolor')
+    btnColor.addEventListener('click',()=> {
+        hoverColor = value.value
+    })
+}
 
