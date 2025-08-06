@@ -8,6 +8,7 @@ function main() {
     console.log(rowNum,colNum);
     changeGrid()
     hoverChange()
+    Reset()
 }
 
 
@@ -51,14 +52,12 @@ function changeGrid() {
         colNum = gridValue
         rowNum=gridValue
         console.log(rowNum,colNum);
+
+        // removing classes
         let col = document.querySelectorAll('.col')
         let ro = document.querySelectorAll('.ro')
-        col.forEach((e)=> {
-            e.remove()
-        })
-        ro.forEach((e)=> {
-            e.remove()
-        })
+        col.forEach((e)=> e.remove())
+        ro.forEach((e)=> e.remove())
         gridCreate()
 
         // making bgcolor change when hovering
@@ -79,6 +78,22 @@ function hoverChange() {
     let value = document.querySelector('#favcolor')
     btnColor.addEventListener('click',()=> {
         hoverColor = value.value
+    })
+}
+
+// reset the grid
+
+function Reset() {
+    document.querySelector('.reset').addEventListener('click', ()=> {
+        let hover = document.querySelectorAll('.hover')
+        hover.forEach((e)=> e.style.backgroundColor = "white")
+        let col = document.querySelectorAll('.col')
+        let ro = document.querySelectorAll('.ro')
+        col.forEach((e)=> e.remove())
+        ro.forEach((e)=> e.remove())
+        colNum = 16
+        rowNum = 16
+        gridCreate()
     })
 }
 
